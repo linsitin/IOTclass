@@ -28,6 +28,7 @@ def analyze():
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'})
     file = request.files['file']
+    file.save("test.jpg")
     image_bytes = file.read()
     dominant_color = get_dominant_color(image_bytes)
     return jsonify({'dominant_color': dominant_color})
